@@ -1,0 +1,238 @@
+.tours-section {
+  padding: 2rem 0;
+  min-height: calc(100vh - 60px);
+  background: #f8f9fa;
+}
+
+.section-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #c41e3a 0%, #8b1e2e 100%);
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.section-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+}
+
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.tour-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.tour-card.featured {
+  border: 2px solid #c41e3a;
+  transform: scale(1.05);
+}
+
+.tour-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tour-card.featured:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.tour-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 5;
+}
+
+.tour-card.featured .tour-badge {
+  background: linear-gradient(135deg, #ffd700 0%, #ffdb4d 100%);
+  color: #333;
+}
+
+.tour-img-placeholder {
+  background: linear-gradient(135deg, #c41e3a 0%, #8b1e2e 100%);
+  color: white;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.tour-img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.tour-card:hover .tour-img-placeholder img {
+  transform: scale(1.05);
+}
+
+.tour-card h3 {
+  color: #c41e3a;
+  padding: 1.5rem 1.5rem 0.5rem;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.tour-desc {
+  padding: 0 1.5rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tour-details {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tour-highlights {
+  list-style: none;
+  padding: 1.5rem;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.tour-highlights li {
+  padding: 0.5rem 0;
+  color: #666;
+  border-bottom: 1px solid #f0f0f0;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.tour-highlights li:last-child {
+  border-bottom: none;
+}
+
+.tour-highlights li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #25d366;
+  font-weight: bold;
+}
+
+.tour-card .btn {
+  margin: 0 1.5rem 1.5rem;
+  width: calc(100% - 3rem);
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #c41e3a 0%, #8b1e2e 100%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.tour-card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+}
+
+.tour-card .btn:active {
+  transform: translateY(0);
+}
+
+.booking-confirm {
+  background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  margin: 2rem 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.booking-confirm h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.booking-confirm p {
+  margin: 0.5rem 0 1.5rem;
+}
+
+.booking-confirm .btn {
+  background: white;
+  color: #25d366;
+  padding: 0.75rem 2rem;
+}
+
+.booking-confirm .btn:hover {
+  background: #f0f0f0;
+  color: #20ba5a;
+}
+
+@media (max-width: 768px) {
+  .section-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .tours-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tour-card.featured {
+    transform: scale(1);
+  }
+
+  .tour-card.featured:hover {
+    transform: translateY(-10px);
+  }
+
+  .tour-details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tour-card .btn {
+    width: calc(100% - 3rem);
+  }
+}

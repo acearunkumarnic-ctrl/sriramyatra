@@ -1,0 +1,114 @@
+<!-- Hero Section with Image Slider -->
+<section class="hero">
+  <div class="image-slider-container">
+    <div class="slider-wrapper">
+      <!-- Slider Images -->
+      <div class="slider-image" 
+           *ngFor="let slide of slides; let i = index"
+           [class.active]="i === currentSlide"
+           (click)="goToTourPackages()">
+        <img [src]="slide.image" [alt]="slide.title" />
+        <div class="slide-overlay">
+          <h2>{{ slide.title }}</h2>
+          <p>Click to explore {{ slide.title }}</p>
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <button class="slider-btn prev" (click)="previousSlide()">❮</button>
+      <button class="slider-btn next" (click)="nextSlide()">❯</button>
+
+      <!-- Slider Dots -->
+      <div class="slider-dots">
+        <span 
+          *ngFor="let slide of slides; let i = index"
+          class="dot"
+          [class.active]="i === currentSlide"
+          (click)="goToSlide(i)">
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <h1>Welcome to Sri Ram Yatra</h1>
+    <p>Your Gateway to Spiritual and Cultural Exploration in Varanasi</p>
+    <div class="hero-buttons">
+      <a routerLink="/tours" class="btn btn-primary">Explore Tour Packages</a>
+      <a routerLink="/taxi" class="btn btn-secondary">Book Taxi Service</a>
+    </div>
+  </div>
+</section>
+
+<!-- Highlights Section -->
+<section class="highlights">
+  <div class="container">
+    <h2>Why Choose Sri Ram Yatra?</h2>
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <div class="highlight-icon">🚕</div>
+        <h3>Premium Taxi Service</h3>
+        <p>Comfortable and reliable transportation across Varanasi</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🎫</div>
+        <h3>Best Tour Packages</h3>
+        <p>Curated packages for spiritual and cultural experiences</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">👨‍💼</div>
+        <h3>Expert Guides</h3>
+        <p>Knowledgeable local guides for unforgettable experiences</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">⭐</div>
+        <h3>5-Star Reviews</h3>
+        <p>Trusted by thousands of satisfied customers</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Tours Section -->
+<section class="featured-tours">
+  <div class="container">
+    <h2>Featured Tour Packages</h2>
+    <div class="tours-grid">
+      <div class="tour-card" (click)="goToTourPackages()" style="cursor: pointer;">
+        <div class="tour-image">
+          <img src="https://kashiz.com/sriramyatra/wp-content/uploads/2024/02/aditya-prakash-rJcakYQpxkw-unsplash-e1708624002278.jpg" alt="Ganga Aarti" />
+        </div>
+        <h3>Ganga Aarti</h3>
+        <p>Experience the divine evening prayer at the Ganges River with beautiful rituals and spirituality.</p>
+        <a routerLink="/tours" class="btn btn-primary">Learn More</a>
+      </div>
+      <div class="tour-card" (click)="goToTourPackages()" style="cursor: pointer;">
+        <div class="tour-image">
+          <img src="https://kashiz.com/sriramyatra/wp-content/uploads/2024/02/pratish-srivastava-Iu06T6z2vRE-unsplash.jpg" alt="Varanasi Ghat" />
+        </div>
+        <h3>Varanasi Ghat Tour</h3>
+        <p>Explore the sacred ghats of Varanasi and witness the spiritual heart of Hindu culture.</p>
+        <a routerLink="/tours" class="btn btn-primary">Learn More</a>
+      </div>
+      <div class="tour-card" (click)="goToTourPackages()" style="cursor: pointer;">
+        <div class="tour-image">
+          <img src="https://kashiz.com/sriramyatra/wp-content/uploads/2024/02/abhijeet-parmar-F-6ykvBdkCA-unsplash.jpg" alt="Sarnath" />
+        </div>
+        <h3>Sarnath Pilgrimage</h3>
+        <p>Visit the sacred Buddhist site where Buddha first taught the dharma to his disciples.</p>
+        <a routerLink="/tours" class="btn btn-primary">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Explore Varanasi?</h2>
+    <p>Contact us today for special offers on tour packages and taxi services</p>
+    <a href="https://wa.me/918383987411" target="_blank" class="btn btn-secondary">
+      Chat on WhatsApp
+    </a>
+  </div>
+</section>

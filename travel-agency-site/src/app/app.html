@@ -1,0 +1,59 @@
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a routerLink="/" class="nav-logo">
+      <span class="logo-icon">🌏</span>
+      <span class="logo-text">Sri Ram Yatra</span>
+    </a>
+    <ul class="nav-menu">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
+      <li><a routerLink="/tours" routerLinkActive="active">Tour Packages</a></li>
+      <li><a routerLink="/taxi" routerLinkActive="active">Taxi Service</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/918383987411" class="whatsapp-btn" target="_blank">
+      <span>💬</span> WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<router-outlet />
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Sri Ram Yatra</h3>
+      <p>Best travel agency in Varanasi for tour packages and cab services.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/about">About Us</a></li>
+        <li><a routerLink="/tours">Tour Packages</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contact Info</h3>
+      <p>📞 +91-8383987411</p>
+      <p>📧 info@sriramyatra.com</p>
+      <p>📍 Varanasi, India</p>
+    </div>
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="Instagram">📷</a>
+        <a href="#" title="Twitter">𝕏</a>
+        <a href="#" title="LinkedIn">in</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Sri Ram Yatra. All Rights Reserved. | Web design by Your Company</p>
+  </div>
+</footer>
