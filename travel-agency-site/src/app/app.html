@@ -1,18 +1,28 @@
 <!-- Navigation Bar -->
 <nav class="navbar">
   <div class="nav-container">
-    <a routerLink="/" class="nav-logo">
+    <a routerLink="/" class="nav-logo" (click)="closeMobileMenu()">
       <img src="apple-touch-icon.png" alt="Sri Ram Yatra Logo" class="logo-image">
       <span class="logo-text">Sri Ram Yatra</span>
     </a>
-    <ul class="nav-menu">
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-      <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
-      <li><a routerLink="/tours" routerLinkActive="active">Tour Packages</a></li>
-      <li><a routerLink="/taxi" routerLinkActive="active">Taxi Service</a></li>
-      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+    
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger" [class.active]="mobileMenuOpen()" (click)="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <!-- Navigation Menu -->
+    <ul class="nav-menu" [class.active]="mobileMenuOpen()">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">About Us</a></li>
+      <li><a routerLink="/tours" routerLinkActive="active" (click)="closeMobileMenu()">Tour Packages</a></li>
+      <li><a routerLink="/taxi" routerLinkActive="active" (click)="closeMobileMenu()">Taxi Service</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact</a></li>
     </ul>
-    <a href="https://wa.me/918383987411" class="whatsapp-btn" target="_blank">
+    
+    <a href="https://wa.me/918383987411" class="whatsapp-btn" target="_blank" (click)="closeMobileMenu()">
       <span>💬</span> WhatsApp
     </a>
   </div>
