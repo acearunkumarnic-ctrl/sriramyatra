@@ -14,7 +14,7 @@ export class TourPackages {
     this.selectedTour = tourName;
     // Automatically navigate to WhatsApp after 2 seconds
     setTimeout(() => {
-      window.open(`https://wa.me/918383987411?text=I want to book ${tourName} tour`, '_blank');
+      window.open(`https://wa.me/917607119739?text=I want to book ${tourName} tour`, '_blank');
     }, 500);
   }
 }

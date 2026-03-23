@@ -26,7 +26,7 @@ export class Contact {
       const encodedText = encodeURIComponent(text);
       
       // Open WhatsApp
-      window.open(`https://wa.me/918383987411?text=${encodedText}`, '_blank');
+      window.open(`https://wa.me/917607119739?text=${encodedText}`, '_blank');
       
       // Show success message
       this.successMessage = 'Thank you! Your message has been sent. Opening WhatsApp for confirmation...';

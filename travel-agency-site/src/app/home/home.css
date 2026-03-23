@@ -102,7 +102,7 @@
   top: 50%;
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.85);
-  color: #c41e3a;
+  color: var(--primary-red);
   border: none;
   font-size: 2rem;
   padding: 1rem 1.5rem;
@@ -118,7 +118,7 @@
   background: white;
   transform: translateY(-50%) scale(1.15);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-  color: #8b1e2e;
+  color: var(--primary-dark);
 }
 
 .slider-btn.prev {
