@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './contact.css',
 })
 export class Contact {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   formData = {
     name: '',
     email: '',
@@ -26,7 +27,9 @@ export class Contact {
       const encodedText = encodeURIComponent(text);
       
       // Open WhatsApp
-      window.open(`https://wa.me/917607119739?text=${encodedText}`, '_blank');
+      if (isPlatformBrowser(this.platformId)) {
+        window.open(`https://wa.me/917607119739?text=${encodedText}`, '_blank');
+      }
       
       // Show success message
       this.successMessage = 'Thank you! Your message has been sent. Opening WhatsApp for confirmation...';

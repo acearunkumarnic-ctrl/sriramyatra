@@ -208,15 +208,104 @@
   margin-bottom: 2rem;
 }
 
+/* Card action buttons */
+.card-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  background: #c41e3a;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(196, 30, 58, 0.3);
+}
+
+.btn-call:hover {
+  background: #a01a30;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(196, 30, 58, 0.4);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  background: #25d366;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+/* CTA large buttons */
 .cta-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.cta-buttons .btn {
-  min-width: 200px;
+.btn-call-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2.2rem;
+  background: white;
+  color: #c41e3a;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-call-large:hover {
+  background: #f8f8f8;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.btn-whatsapp-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2.2rem;
+  background: #25d366;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp-large:hover {
+  background: #1ebe5d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -231,9 +320,12 @@
 
   .cta-buttons {
     flex-direction: column;
+    align-items: center;
   }
 
-  .cta-buttons .btn {
+  .btn-call-large,
+  .btn-whatsapp-large {
     width: 100%;
+    justify-content: center;
   }
 }

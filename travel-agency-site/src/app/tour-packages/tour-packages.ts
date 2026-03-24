@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-tour-packages',
@@ -10,11 +10,14 @@ import { CommonModule } from '@angular/common';
 export class TourPackages {
   selectedTour: string = '';
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   bookTour(tourName: string) {
     this.selectedTour = tourName;
-    // Automatically navigate to WhatsApp after 2 seconds
-    setTimeout(() => {
-      window.open(`https://wa.me/917607119739?text=I want to book ${tourName} tour`, '_blank');
-    }, 500);
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        window.open(`https://wa.me/917607119739?text=I want to book ${tourName} tour`, '_blank');
+      }, 500);
+    }
   }
 }
