@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 
 @Component({
@@ -14,20 +14,33 @@ export class Home implements OnInit, OnDestroy {
 
   slides = [
     {
-      image: 'https://kashiz.com/sriramyatra/wp-content/uploads/2026/01/img1.png',
-      title: 'Spiritual Varanasi'
+      image: 'assets/images/explore-varanasi-tour.jpg',
+      title: '',
+      route: '/tours'
     },
     {
-      image: 'https://kashiz.com/sriramyatra/wp-content/uploads/2026/01/img2.png',
-      title: 'Cultural Tours'
+      image: 'assets/images/Prayagraj-Triveni-Sangam-Hanuman.png',
+      title: 'Prayagraj Tours',
+      route: '/tours'
     },
     {
-      image: 'https://kashiz.com/sriramyatra/wp-content/uploads/2025/04/cab-booking-in-varanasi.jpg',
-      title: 'Premium Taxi Service'
+      image: 'assets/images/ayodhya-ram_mandir.jpg',
+      title: 'Ayodhya Ram Mandir Tour',
+      route: '/tours'
+    },
+    {
+      image: 'assets/images/ganga-aarti.jpg',
+      title: 'Ganga Aarti in Varanasi',
+      route: '/tours'
+    },
+    {
+      image: 'assets/images/cab-booking-in-varanasi.jpg',
+      title: 'Premium Taxi Service',
+      route: '/taxi'
     }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {
     this.startAutoSlide();
@@ -40,9 +53,11 @@ export class Home implements OnInit, OnDestroy {
   }
 
   startAutoSlide() {
-    this.autoSlideInterval = setInterval(() => {
-      this.nextSlide();
-    }, 5000); // Change slide every 5 seconds
+    if (isPlatformBrowser(this.platformId)) {
+      this.autoSlideInterval = setInterval(() => {
+        this.nextSlide();
+      }, 5000);
+    }
   }
 
   nextSlide() {
@@ -55,6 +70,10 @@ export class Home implements OnInit, OnDestroy {
 
   goToSlide(index: number) {
     this.currentSlide = index;
+  }
+
+  navigateToSlide(route: string) {
+    this.router.navigate([route]);
   }
 
   goToTourPackages() {

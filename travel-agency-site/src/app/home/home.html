@@ -6,7 +6,7 @@
       <div class="slider-image" 
            *ngFor="let slide of slides; let i = index"
            [class.active]="i === currentSlide"
-           (click)="goToTourPackages()">
+           (click)="navigateToSlide(slide.route)">
         <img [src]="slide.image" [alt]="slide.title" />
         <div class="slide-overlay">
           <h2>{{ slide.title }}</h2>
@@ -90,7 +90,7 @@
     <div class="tours-grid">
       <div class="tour-card" (click)="goToTourPackages()" style="cursor: pointer;">
         <div class="tour-image">
-          <img src="https://kashiz.com/sriramyatra/wp-content/uploads/2024/02/pratish-srivastava-Iu06T6z2vRE-unsplash.jpg" alt="Varanasi/Kashi" />
+          <img src="assets/images/varanasi-ghat.jpg" alt="Varanasi/Kashi" />
         </div>
         <h3>Varanasi/Kashi  Tour</h3>
         <p>Explore the sacred ghats of Varanasi/Kashi and temples and witness the spiritual heart of Hindu culture.</p>
