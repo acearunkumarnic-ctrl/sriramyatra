@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -40,9 +41,19 @@ export class Home implements OnInit, OnDestroy {
     }
   ];
 
-  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private titleService: Title,
+    private metaService: Meta
+  ) {}
 
   ngOnInit() {
+    this.titleService.setTitle('Sri Ram Yatra - Spiritual Tours in Varanasi, Prayagraj & Ayodhya');
+    this.metaService.updateTag({ name: 'description', content: 'Sri Ram Yatra offers the best spiritual tour packages in Varanasi, Prayagraj, and Ayodhya. Experience Ganga Aarti, Ram Mandir, Triveni Sangam & book reliable taxi service.' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Sri Ram Yatra - Spiritual Tours in Varanasi, Prayagraj & Ayodhya' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://sriramyatra.com/' });
+    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
     this.startAutoSlide();
   }
 
