@@ -1,3 +1,105 @@
+/* ── Page Loader ── */
+@keyframes loaderRingSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes loaderFadeIn {
+  0%   { opacity: 0; transform: scale(0.88); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes loaderFadeOut {
+  0%   { opacity: 1; pointer-events: all; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #c41e3a 0%, #8b1e2e 60%, #4a0e1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.page-loader.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: loaderFadeIn 0.4s ease both;
+}
+
+.loader-logo-ring {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ffd700;
+  border-right-color: #FF9933;
+  animation: loaderRingSpin 1s linear infinite;
+}
+
+.loader-ring::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-bottom-color: rgba(255, 215, 0, 0.4);
+  border-left-color: rgba(255, 153, 51, 0.3);
+  animation: loaderRingSpin 1.6s linear infinite reverse;
+}
+
+.loader-logo-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: divineGlow 2.5s ease-in-out infinite, logoFloat 4s ease-in-out infinite;
+  border: 2px solid rgba(255, 215, 0, 0.5);
+}
+
+.loader-brand-shimmer {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ffd700, #FF9933, #ffd700, #fff5e0, #FF9933, #ffd700);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 3s ease infinite;
+}
+
+.loader-tagline {
+  font-size: 0.78rem;
+  color: rgba(255, 240, 200, 0.75);
+  letter-spacing: 0.1em;
+  font-style: italic;
+}
+
 /* Global Styles */
 :host {
   display: block;
