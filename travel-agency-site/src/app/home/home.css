@@ -178,9 +178,54 @@
 .hero-content h1 {
   font-size: 3.2rem;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   font-weight: 700;
   letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  line-height: 1.2;
+}
+
+/* "Welcome to" — slides down and fades in */
+@keyframes welcomeReveal {
+  0%   { opacity: 0; transform: translateY(-18px) scale(0.95); letter-spacing: 0.35em; }
+  100% { opacity: 1; transform: translateY(0)    scale(1);    letter-spacing: 0.12em; }
+}
+
+.hero-welcome {
+  display: block;
+  font-size: 0.48em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 240, 200, 0.9);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  animation: welcomeReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* "Sri Ram Yatra" — saffron-gold shimmer, same as navbar */
+@keyframes shimmerText {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+@keyframes brandDrop {
+  0%   { opacity: 0; transform: translateY(22px) scale(0.93); }
+  100% { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.hero-brand-shimmer {
+  display: block;
+  background: linear-gradient(90deg, #ffd700, #FF9933, #ffd700, #fff5e0, #FF9933, #ffd700);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 3s ease infinite, brandDrop 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 8px rgba(255, 153, 51, 0.45));
 }
 
 .hero-content p {
@@ -556,6 +601,7 @@
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2rem;
+    gap: 0.1rem;
   }
 
   .hero-content p {
