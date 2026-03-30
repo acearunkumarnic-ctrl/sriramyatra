@@ -25,14 +25,20 @@
     </div>
 
     <!-- Hamburger Menu Button -->
-    <button class="hamburger" [class.active]="mobileMenuOpen()" (click)="toggleMobileMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button
+      class="hamburger"
+      [class.active]="mobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="mobileMenuOpen()"
+      [attr.aria-label]="mobileMenuOpen() ? 'Close navigation menu' : 'Open navigation menu'"
+      aria-controls="main-nav-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
     
     <!-- Navigation Menu -->
-    <ul class="nav-menu" [class.active]="mobileMenuOpen()">
+    <ul class="nav-menu" [class.active]="mobileMenuOpen()" id="main-nav-menu" role="list">
       <!-- Mobile Brand Header (visible only in mobile dropdown) -->
       <li class="mobile-brand-item">
         <div class="mobile-brand-logo">
@@ -55,7 +61,9 @@
 </nav>
 
 <!-- Page Content -->
-<router-outlet />
+<main id="main-content">
+  <router-outlet />
+</main>
 
 <!-- Footer -->
 <footer class="footer">

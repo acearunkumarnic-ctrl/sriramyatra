@@ -23,17 +23,19 @@
       </div>
 
       <!-- Slider Controls -->
-      <button class="slider-btn prev" (click)="previousSlide()">❮</button>
-      <button class="slider-btn next" (click)="nextSlide()">❯</button>
+      <button class="slider-btn prev" (click)="previousSlide()" aria-label="Previous slide">❮</button>
+      <button class="slider-btn next" (click)="nextSlide()" aria-label="Next slide">❯</button>
 
       <!-- Slider Dots -->
-      <div class="slider-dots">
-        <span 
+      <div class="slider-dots" role="group" aria-label="Slide navigation">
+        <button
           *ngFor="let slide of slides; let i = index"
           class="dot"
           [class.active]="i === currentSlide"
-          (click)="goToSlide(i)">
-        </span>
+          (click)="goToSlide(i)"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+          [attr.aria-current]="i === currentSlide ? 'true' : null">
+        </button>
       </div>
     </div>
   </div>

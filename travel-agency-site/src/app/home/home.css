@@ -70,7 +70,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.58);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,6 +151,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
 }
 
 .dot.active {
@@ -340,7 +344,7 @@
 
 .highlights > p {
   text-align: center;
-  color: #7f8c8d;
+  color: #4a5568;
   font-size: 1.1rem;
   margin-bottom: 3rem;
   max-width: 600px;
@@ -419,7 +423,7 @@
 }
 
 .highlight-card p {
-  color: #7f8c8d;
+  color: #4a5568;
   line-height: 1.8;
   margin: 0;
 }
@@ -442,7 +446,7 @@
 
 .featured-tours > p {
   text-align: center;
-  color: #7f8c8d;
+  color: #4a5568;
   font-size: 1.1rem;
   margin-bottom: 3rem;
   max-width: 600px;
@@ -515,7 +519,7 @@
 
 .tour-card p {
   padding: 0.5rem 1.5rem;
-  color: #7f8c8d;
+  color: #4a5568;
   line-height: 1.7;
   font-size: 0.95rem;
 }
