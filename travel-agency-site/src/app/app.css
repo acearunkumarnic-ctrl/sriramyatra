@@ -69,6 +69,39 @@
   letter-spacing: 0.5px;
 }
 
+/* ── Logo glow + pulse animation ── */
+@keyframes divineGlow {
+  0%   { box-shadow: 0 0 6px 2px rgba(255, 215, 0, 0.4), 0 4px 12px rgba(0,0,0,0.2); }
+  50%  { box-shadow: 0 0 18px 6px rgba(255, 153, 51, 0.75), 0 4px 16px rgba(0,0,0,0.25); }
+  100% { box-shadow: 0 0 6px 2px rgba(255, 215, 0, 0.4), 0 4px 12px rgba(0,0,0,0.2); }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25%       { transform: translateY(-3px) rotate(-1deg); }
+  75%       { transform: translateY(-2px) rotate(1deg); }
+}
+
+.logo-animated {
+  animation: divineGlow 2.5s ease-in-out infinite, logoFloat 4s ease-in-out infinite;
+}
+
+.nav-logo:hover .logo-animated {
+  animation: divineGlow 1s ease-in-out infinite;
+  transform: scale(1.12) rotate(5deg) !important;
+  transition: transform 0.4s ease;
+}
+
+/* Mobile brand header — hidden on desktop, revealed only in mobile dropdown */
+.mobile-brand-item {
+  display: none;
+}
+
+/* Navbar center brand — hidden on desktop */
+.navbar-center-brand {
+  display: none;
+}
+
 .nav-menu {
   list-style: none;
   display: flex;
@@ -289,10 +322,46 @@ router-outlet + * {
     justify-content: space-between;
   }
 
+  /* Navbar center brand — mobile only */
+  .navbar-center-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    order: 2;
+    pointer-events: none;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+
+  .navbar-shimmer-text {
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffd700, #FF9933, #ffd700, #fff5e0, #FF9933, #ffd700);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 3s ease infinite;
+    white-space: nowrap;
+  }
+
+  .navbar-shimmer-tagline {
+    font-size: 0.58rem;
+    color: rgba(255, 240, 200, 0.8);
+    letter-spacing: 0.07em;
+    font-style: italic;
+    animation: taglineFade 0.8s ease 0.3s both;
+    white-space: nowrap;
+  }
+
   .hamburger {
     display: flex;
-    order: 2;
-    margin: 0 1rem 0 auto;
+    order: 3;
+    margin: 0;
   }
 
   .nav-menu {
@@ -360,8 +429,80 @@ router-outlet + * {
     width: 40px;
   }
 
+  /* ── Mobile Brand Header ── */
+  .mobile-brand-item {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.4rem 1rem 1.2rem !important;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.35) !important;
+    background: linear-gradient(180deg, rgba(139,30,46,0.6) 0%, rgba(180,50,30,0.3) 100%);
+    gap: 0.3rem;
+    cursor: default;
+  }
+
+  .mobile-brand-logo {
+    margin-bottom: 0.4rem;
+  }
+
+  .mobile-brand-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 215, 0, 0.7);
+    animation: divineGlow 2.5s ease-in-out infinite, logoFloat 4s ease-in-out infinite;
+    object-fit: cover;
+  }
+
+  /* saffron → gold → deep red shimmer */
+  @keyframes shimmerText {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes textReveal {
+    0%   { letter-spacing: 0.3em; opacity: 0; transform: translateY(-8px); }
+    100% { letter-spacing: 0.12em; opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes taglineFade {
+    0%   { opacity: 0; transform: translateY(6px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .mobile-brand-text {
+    font-size: 1.35rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffd700, #FF9933, #ffd700, #fff5e0, #FF9933, #ffd700);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 3s ease infinite, textReveal 0.6s ease forwards;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-shadow: none;
+  }
+
+  .mobile-brand-tagline {
+    font-size: 0.72rem;
+    color: rgba(255, 240, 200, 0.85);
+    letter-spacing: 0.08em;
+    font-style: italic;
+    animation: taglineFade 0.8s ease 0.3s both;
+  }
+
+  /* hover state on the brand item — just a very subtle gold bg */
+  .mobile-brand-item:hover {
+    background: linear-gradient(180deg, rgba(139,30,46,0.6) 0%, rgba(180,50,30,0.3) 100%) !important;
+    padding-left: 1rem !important;  /* override the indent on hover from generic rule */
+    color: inherit;
+  }
+
   .whatsapp-btn {
-    order: 3;
+    order: 4;
     padding: 0.6rem 0.8rem;
     font-size: 0.85rem;
     white-space: nowrap;
