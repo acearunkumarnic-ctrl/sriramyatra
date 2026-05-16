@@ -305,6 +305,83 @@ router-outlet + * {
   min-height: calc(100vh - 60px);
 }
 
+/* Floating Visitor Icon */
+.floating-visitor-icon {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(255, 215, 0, 0.13);
+  border: 1px solid rgba(255, 215, 0, 0.45);
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 28px rgba(255, 181, 58, 0.25);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  animation: visitorGlow 2.5s ease-in-out infinite;
+}
+
+.floating-visitor-icon:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 215, 0, 0.22);
+  box-shadow: 0 18px 34px rgba(255, 171, 0, 0.35);
+}
+
+.floating-icon-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9e1b 100%);
+  color: #6d1e1e;
+  font-size: 1.1rem;
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.45);
+}
+
+.floating-icon-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.logo-flag,
+.loader-brand-flag,
+.navbar-flag,
+.mobile-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.35rem;
+  font-size: 1.1em;
+  transform: translateY(-1px);
+  animation: flagWave 2.5s ease-in-out infinite;
+}
+
+@keyframes flagWave {
+  0%, 100% { transform: translateY(-1px) rotate(0deg); }
+  25% { transform: translateY(-2px) rotate(-6deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(-2px) rotate(6deg); }
+}
+
+@keyframes visitorGlow {
+  0%, 100% {
+    box-shadow: 0 12px 28px rgba(255, 181, 58, 0.25), 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+  50% {
+    box-shadow: 0 18px 34px rgba(255, 171, 0, 0.35), 0 0 0 16px rgba(255, 215, 0, 0.08);
+  }
+}
+
 /* Footer - Modern Design */
 .footer {
   background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);

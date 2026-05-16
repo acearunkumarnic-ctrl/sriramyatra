@@ -5,7 +5,7 @@
       <div class="loader-ring"></div>
       <img src="apple-touch-icon.png" alt="Sri Ram Yatra" class="loader-logo-img">
     </div>
-    <span class="loader-brand-shimmer">Sri Ram Yatra</span>
+    <span class="loader-brand-shimmer"><span class="loader-brand-flag">🚩</span>Sri Ram Yatra</span>
     <span class="loader-tagline">✦ Please wait... ✦</span>
   </div>
 </div>
@@ -15,12 +15,12 @@
   <div class="nav-container">
     <a routerLink="/" class="nav-logo" (click)="closeMobileMenu()">
       <img src="apple-touch-icon.png" alt="Sri Ram Yatra Logo" class="logo-image logo-animated">
-      <span class="logo-text">Sri Ram Yatra</span>
+      <span class="logo-text"><span class="logo-flag">🚩</span>Sri Ram Yatra</span>
     </a>
     
     <!-- Navbar Center Brand Text (mobile only) -->
     <div class="navbar-center-brand">
-      <span class="navbar-shimmer-text">Sri Ram Yatra</span>
+      <span class="navbar-shimmer-text"><span class="navbar-flag">🚩</span>Sri Ram Yatra</span>
       <span class="navbar-shimmer-tagline">✦ Spiritual Tours ✦</span>
     </div>
 
@@ -44,7 +44,7 @@
         <div class="mobile-brand-logo">
           <img src="apple-touch-icon.png" alt="Sri Ram Yatra" class="mobile-brand-img">
         </div>
-        <span class="mobile-brand-text">Sri Ram Yatra</span>
+        <span class="mobile-brand-text"><span class="mobile-flag">🚩</span>Sri Ram Yatra</span>
         <span class="mobile-brand-tagline">✦ Spiritual Journeys & Sacred Tours ✦</span>
       </li>
       <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()">Home</a></li>
@@ -64,6 +64,12 @@
 <main id="main-content">
   <router-outlet />
 </main>
+
+<!-- Floating Visitor Icon -->
+<a href="https://wa.me/917607119739" target="_blank" rel="noreferrer" class="floating-visitor-icon" title="Chat with Sri Ram Yatra">
+  <span class="floating-icon-symbol">🪔</span>
+  <span class="floating-icon-label">Need help?</span>
+</a>
 
 <!-- Footer -->
 <footer class="footer">
@@ -99,6 +105,6 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Sri Ram Yatra. All Rights Reserved. | Web design by Your Company</p>
+    <p>&copy; 2026 Sri Ram Yatra. All Rights Reserved.</p>
   </div>
 </footer>
